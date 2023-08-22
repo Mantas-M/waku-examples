@@ -1,0 +1,19 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Client Admin",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/waku-chat-example-2/main-admin.mjs"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Client User",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/waku-chat-example-2/main-client.mjs"
+    }
+  ]
+}

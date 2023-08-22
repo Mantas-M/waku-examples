@@ -1,0 +1,28 @@
+{
+  "name": "waku-admin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc && node dist/main.js"
+  },
+  "keywords": [],
+  "type": "module",
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.47.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "prettier": "^3.0.2"
+  },
+  "dependencies": {
+    "@waku/message-encryption": "^0.0.20",
+    "@waku/sdk": "^0.0.18",
+    "dotenv": "^16.3.1",
+    "eth-crypto": "^2.6.0",
+    "ethers": "^5.7.2",
+    "protobufjs": "^7.2.4"
+  }
+}

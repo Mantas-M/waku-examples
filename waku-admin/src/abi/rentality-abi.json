@@ -1,0 +1,2868 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "carServiceAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "currencyConverterServiceAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "tripServiceAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "userServiceAddress",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "previousOwner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "OwnershipTransferred",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "string",
+            "name": "tokenUri",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "carVinNumber",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "brand",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "model",
+            "type": "string"
+          },
+          {
+            "internalType": "uint32",
+            "name": "yearOfProduction",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint64",
+            "name": "pricePerDayInUsdCents",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "securityDepositPerTripInUsdCents",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "tankVolumeInGal",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "fuelPricePerGalInUsdCents",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "milesIncludedPerDay",
+            "type": "uint64"
+          },
+          {
+            "internalType": "string",
+            "name": "country",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "state",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "city",
+            "type": "string"
+          },
+          {
+            "internalType": "int64",
+            "name": "locationLatitudeInPPM",
+            "type": "int64"
+          },
+          {
+            "internalType": "int64",
+            "name": "locationLongitudeInPPM",
+            "type": "int64"
+          }
+        ],
+        "internalType": "struct RentalityCarToken.CreateCarRequest",
+        "name": "request",
+        "type": "tuple"
+      }
+    ],
+    "name": "addCar",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "tripId",
+        "type": "uint256"
+      }
+    ],
+    "name": "approveTripRequest",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "carId",
+        "type": "uint256"
+      }
+    ],
+    "name": "burnCar",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "tripId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint64",
+        "name": "startFuelLevelInPermille",
+        "type": "uint64"
+      },
+      {
+        "internalType": "uint64",
+        "name": "startOdometr",
+        "type": "uint64"
+      }
+    ],
+    "name": "checkInByGuest",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "tripId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint64",
+        "name": "startFuelLevelInPermille",
+        "type": "uint64"
+      },
+      {
+        "internalType": "uint64",
+        "name": "startOdometr",
+        "type": "uint64"
+      }
+    ],
+    "name": "checkInByHost",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "tripId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint64",
+        "name": "endFuelLevelInPermille",
+        "type": "uint64"
+      },
+      {
+        "internalType": "uint64",
+        "name": "endOdometr",
+        "type": "uint64"
+      }
+    ],
+    "name": "checkOutByGuest",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "tripId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint64",
+        "name": "endFuelLevelInPermille",
+        "type": "uint64"
+      },
+      {
+        "internalType": "uint64",
+        "name": "endOdometr",
+        "type": "uint64"
+      }
+    ],
+    "name": "checkOutByHost",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "carId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "host",
+            "type": "address"
+          },
+          {
+            "internalType": "uint64",
+            "name": "startDateTime",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "endDateTime",
+            "type": "uint64"
+          },
+          {
+            "internalType": "string",
+            "name": "startLocation",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "endLocation",
+            "type": "string"
+          },
+          {
+            "internalType": "uint64",
+            "name": "totalDayPriceInUsdCents",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "taxPriceInUsdCents",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "depositInUsdCents",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "fuelPricePerGalInUsdCents",
+            "type": "uint64"
+          },
+          {
+            "internalType": "int256",
+            "name": "ethToCurrencyRate",
+            "type": "int256"
+          },
+          {
+            "internalType": "uint8",
+            "name": "ethToCurrencyDecimals",
+            "type": "uint8"
+          }
+        ],
+        "internalType": "struct IRentality.CreateTripRequest",
+        "name": "request",
+        "type": "tuple"
+      }
+    ],
+    "name": "createTripRequest",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "tripId",
+        "type": "uint256"
+      }
+    ],
+    "name": "finishTrip",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getAllCars",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "carId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "carVinNumber",
+            "type": "string"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "carVinNumberHash",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "address",
+            "name": "createdBy",
+            "type": "address"
+          },
+          {
+            "internalType": "string",
+            "name": "brand",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "model",
+            "type": "string"
+          },
+          {
+            "internalType": "uint32",
+            "name": "yearOfProduction",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint64",
+            "name": "pricePerDayInUsdCents",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "securityDepositPerTripInUsdCents",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "tankVolumeInGal",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "fuelPricePerGalInUsdCents",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "milesIncludedPerDay",
+            "type": "uint64"
+          },
+          {
+            "internalType": "string",
+            "name": "country",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "state",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "city",
+            "type": "string"
+          },
+          {
+            "internalType": "int64",
+            "name": "locationLatitudeInPPM",
+            "type": "int64"
+          },
+          {
+            "internalType": "int64",
+            "name": "locationLongitudeInPPM",
+            "type": "int64"
+          },
+          {
+            "internalType": "bool",
+            "name": "currentlyListed",
+            "type": "bool"
+          }
+        ],
+        "internalType": "struct RentalityCarToken.CarInfo[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getAvailableCars",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "carId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "carVinNumber",
+            "type": "string"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "carVinNumberHash",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "address",
+            "name": "createdBy",
+            "type": "address"
+          },
+          {
+            "internalType": "string",
+            "name": "brand",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "model",
+            "type": "string"
+          },
+          {
+            "internalType": "uint32",
+            "name": "yearOfProduction",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint64",
+            "name": "pricePerDayInUsdCents",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "securityDepositPerTripInUsdCents",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "tankVolumeInGal",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "fuelPricePerGalInUsdCents",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "milesIncludedPerDay",
+            "type": "uint64"
+          },
+          {
+            "internalType": "string",
+            "name": "country",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "state",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "city",
+            "type": "string"
+          },
+          {
+            "internalType": "int64",
+            "name": "locationLatitudeInPPM",
+            "type": "int64"
+          },
+          {
+            "internalType": "int64",
+            "name": "locationLongitudeInPPM",
+            "type": "int64"
+          },
+          {
+            "internalType": "bool",
+            "name": "currentlyListed",
+            "type": "bool"
+          }
+        ],
+        "internalType": "struct RentalityCarToken.CarInfo[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      }
+    ],
+    "name": "getAvailableCarsForUser",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "carId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "carVinNumber",
+            "type": "string"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "carVinNumberHash",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "address",
+            "name": "createdBy",
+            "type": "address"
+          },
+          {
+            "internalType": "string",
+            "name": "brand",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "model",
+            "type": "string"
+          },
+          {
+            "internalType": "uint32",
+            "name": "yearOfProduction",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint64",
+            "name": "pricePerDayInUsdCents",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "securityDepositPerTripInUsdCents",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "tankVolumeInGal",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "fuelPricePerGalInUsdCents",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "milesIncludedPerDay",
+            "type": "uint64"
+          },
+          {
+            "internalType": "string",
+            "name": "country",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "state",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "city",
+            "type": "string"
+          },
+          {
+            "internalType": "int64",
+            "name": "locationLatitudeInPPM",
+            "type": "int64"
+          },
+          {
+            "internalType": "int64",
+            "name": "locationLongitudeInPPM",
+            "type": "int64"
+          },
+          {
+            "internalType": "bool",
+            "name": "currentlyListed",
+            "type": "bool"
+          }
+        ],
+        "internalType": "struct RentalityCarToken.CarInfo[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "carId",
+        "type": "uint256"
+      }
+    ],
+    "name": "getCarInfoById",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "carId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "carVinNumber",
+            "type": "string"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "carVinNumberHash",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "address",
+            "name": "createdBy",
+            "type": "address"
+          },
+          {
+            "internalType": "string",
+            "name": "brand",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "model",
+            "type": "string"
+          },
+          {
+            "internalType": "uint32",
+            "name": "yearOfProduction",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint64",
+            "name": "pricePerDayInUsdCents",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "securityDepositPerTripInUsdCents",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "tankVolumeInGal",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "fuelPricePerGalInUsdCents",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "milesIncludedPerDay",
+            "type": "uint64"
+          },
+          {
+            "internalType": "string",
+            "name": "country",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "state",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "city",
+            "type": "string"
+          },
+          {
+            "internalType": "int64",
+            "name": "locationLatitudeInPPM",
+            "type": "int64"
+          },
+          {
+            "internalType": "int64",
+            "name": "locationLongitudeInPPM",
+            "type": "int64"
+          },
+          {
+            "internalType": "bool",
+            "name": "currentlyListed",
+            "type": "bool"
+          }
+        ],
+        "internalType": "struct RentalityCarToken.CarInfo",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "carId",
+        "type": "uint256"
+      }
+    ],
+    "name": "getCarMetadataURI",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getCarServiceAddress",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getCarsRentedByMe",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "carId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "carVinNumber",
+            "type": "string"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "carVinNumberHash",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "address",
+            "name": "createdBy",
+            "type": "address"
+          },
+          {
+            "internalType": "string",
+            "name": "brand",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "model",
+            "type": "string"
+          },
+          {
+            "internalType": "uint32",
+            "name": "yearOfProduction",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint64",
+            "name": "pricePerDayInUsdCents",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "securityDepositPerTripInUsdCents",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "tankVolumeInGal",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "fuelPricePerGalInUsdCents",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "milesIncludedPerDay",
+            "type": "uint64"
+          },
+          {
+            "internalType": "string",
+            "name": "country",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "state",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "city",
+            "type": "string"
+          },
+          {
+            "internalType": "int64",
+            "name": "locationLatitudeInPPM",
+            "type": "int64"
+          },
+          {
+            "internalType": "int64",
+            "name": "locationLongitudeInPPM",
+            "type": "int64"
+          },
+          {
+            "internalType": "bool",
+            "name": "currentlyListed",
+            "type": "bool"
+          }
+        ],
+        "internalType": "struct RentalityCarToken.CarInfo[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getCurrencyConverterServiceAddress",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getMyCars",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "carId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "carVinNumber",
+            "type": "string"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "carVinNumberHash",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "address",
+            "name": "createdBy",
+            "type": "address"
+          },
+          {
+            "internalType": "string",
+            "name": "brand",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "model",
+            "type": "string"
+          },
+          {
+            "internalType": "uint32",
+            "name": "yearOfProduction",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint64",
+            "name": "pricePerDayInUsdCents",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "securityDepositPerTripInUsdCents",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "tankVolumeInGal",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "fuelPricePerGalInUsdCents",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "milesIncludedPerDay",
+            "type": "uint64"
+          },
+          {
+            "internalType": "string",
+            "name": "country",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "state",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "city",
+            "type": "string"
+          },
+          {
+            "internalType": "int64",
+            "name": "locationLatitudeInPPM",
+            "type": "int64"
+          },
+          {
+            "internalType": "int64",
+            "name": "locationLongitudeInPPM",
+            "type": "int64"
+          },
+          {
+            "internalType": "bool",
+            "name": "currentlyListed",
+            "type": "bool"
+          }
+        ],
+        "internalType": "struct RentalityCarToken.CarInfo[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getPlatformFeeInPPM",
+    "outputs": [
+      {
+        "internalType": "uint32",
+        "name": "",
+        "type": "uint32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "tripId",
+        "type": "uint256"
+      }
+    ],
+    "name": "getTrip",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "tripId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "carId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "enum RentalityTripService.TripStatus",
+            "name": "status",
+            "type": "uint8"
+          },
+          {
+            "internalType": "address",
+            "name": "guest",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "host",
+            "type": "address"
+          },
+          {
+            "internalType": "uint64",
+            "name": "pricePerDayInUsdCents",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "startDateTime",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "endDateTime",
+            "type": "uint64"
+          },
+          {
+            "internalType": "string",
+            "name": "startLocation",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "endLocation",
+            "type": "string"
+          },
+          {
+            "internalType": "uint64",
+            "name": "milesIncludedPerDay",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "fuelPricePerGalInUsdCents",
+            "type": "uint64"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "tripId",
+                "type": "uint256"
+              },
+              {
+                "internalType": "address",
+                "name": "from",
+                "type": "address"
+              },
+              {
+                "internalType": "address",
+                "name": "to",
+                "type": "address"
+              },
+              {
+                "internalType": "uint64",
+                "name": "totalDayPriceInUsdCents",
+                "type": "uint64"
+              },
+              {
+                "internalType": "uint64",
+                "name": "taxPriceInUsdCents",
+                "type": "uint64"
+              },
+              {
+                "internalType": "uint64",
+                "name": "depositInUsdCents",
+                "type": "uint64"
+              },
+              {
+                "internalType": "uint64",
+                "name": "resolveAmountInUsdCents",
+                "type": "uint64"
+              },
+              {
+                "internalType": "enum RentalityTripService.CurrencyType",
+                "name": "currencyType",
+                "type": "uint8"
+              },
+              {
+                "internalType": "int256",
+                "name": "ethToCurrencyRate",
+                "type": "int256"
+              },
+              {
+                "internalType": "uint8",
+                "name": "ethToCurrencyDecimals",
+                "type": "uint8"
+              },
+              {
+                "internalType": "uint64",
+                "name": "resolveFuelAmountInUsdCents",
+                "type": "uint64"
+              },
+              {
+                "internalType": "uint64",
+                "name": "resolveMilesAmountInUsdCents",
+                "type": "uint64"
+              }
+            ],
+            "internalType": "struct RentalityTripService.PaymentInfo",
+            "name": "paymentInfo",
+            "type": "tuple"
+          },
+          {
+            "internalType": "uint256",
+            "name": "approvedDateTime",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "checkedInByHostDateTime",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint64",
+            "name": "startFuelLevelInGal",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "startOdometr",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint256",
+            "name": "checkedInByGuestDateTime",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "checkedOutByGuestDateTime",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint64",
+            "name": "endFuelLevelInGal",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "endOdometr",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint256",
+            "name": "checkedOutByHostDateTime",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct RentalityTripService.Trip",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "tripId",
+        "type": "uint256"
+      }
+    ],
+    "name": "getTripContactInfo",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "guestPhoneNumber",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "hostPhoneNumber",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getTripServiceAddress",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getTripsAsGuest",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "tripId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "carId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "enum RentalityTripService.TripStatus",
+            "name": "status",
+            "type": "uint8"
+          },
+          {
+            "internalType": "address",
+            "name": "guest",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "host",
+            "type": "address"
+          },
+          {
+            "internalType": "uint64",
+            "name": "pricePerDayInUsdCents",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "startDateTime",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "endDateTime",
+            "type": "uint64"
+          },
+          {
+            "internalType": "string",
+            "name": "startLocation",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "endLocation",
+            "type": "string"
+          },
+          {
+            "internalType": "uint64",
+            "name": "milesIncludedPerDay",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "fuelPricePerGalInUsdCents",
+            "type": "uint64"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "tripId",
+                "type": "uint256"
+              },
+              {
+                "internalType": "address",
+                "name": "from",
+                "type": "address"
+              },
+              {
+                "internalType": "address",
+                "name": "to",
+                "type": "address"
+              },
+              {
+                "internalType": "uint64",
+                "name": "totalDayPriceInUsdCents",
+                "type": "uint64"
+              },
+              {
+                "internalType": "uint64",
+                "name": "taxPriceInUsdCents",
+                "type": "uint64"
+              },
+              {
+                "internalType": "uint64",
+                "name": "depositInUsdCents",
+                "type": "uint64"
+              },
+              {
+                "internalType": "uint64",
+                "name": "resolveAmountInUsdCents",
+                "type": "uint64"
+              },
+              {
+                "internalType": "enum RentalityTripService.CurrencyType",
+                "name": "currencyType",
+                "type": "uint8"
+              },
+              {
+                "internalType": "int256",
+                "name": "ethToCurrencyRate",
+                "type": "int256"
+              },
+              {
+                "internalType": "uint8",
+                "name": "ethToCurrencyDecimals",
+                "type": "uint8"
+              },
+              {
+                "internalType": "uint64",
+                "name": "resolveFuelAmountInUsdCents",
+                "type": "uint64"
+              },
+              {
+                "internalType": "uint64",
+                "name": "resolveMilesAmountInUsdCents",
+                "type": "uint64"
+              }
+            ],
+            "internalType": "struct RentalityTripService.PaymentInfo",
+            "name": "paymentInfo",
+            "type": "tuple"
+          },
+          {
+            "internalType": "uint256",
+            "name": "approvedDateTime",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "checkedInByHostDateTime",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint64",
+            "name": "startFuelLevelInGal",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "startOdometr",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint256",
+            "name": "checkedInByGuestDateTime",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "checkedOutByGuestDateTime",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint64",
+            "name": "endFuelLevelInGal",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "endOdometr",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint256",
+            "name": "checkedOutByHostDateTime",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct RentalityTripService.Trip[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getTripsAsHost",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "tripId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "carId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "enum RentalityTripService.TripStatus",
+            "name": "status",
+            "type": "uint8"
+          },
+          {
+            "internalType": "address",
+            "name": "guest",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "host",
+            "type": "address"
+          },
+          {
+            "internalType": "uint64",
+            "name": "pricePerDayInUsdCents",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "startDateTime",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "endDateTime",
+            "type": "uint64"
+          },
+          {
+            "internalType": "string",
+            "name": "startLocation",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "endLocation",
+            "type": "string"
+          },
+          {
+            "internalType": "uint64",
+            "name": "milesIncludedPerDay",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "fuelPricePerGalInUsdCents",
+            "type": "uint64"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "tripId",
+                "type": "uint256"
+              },
+              {
+                "internalType": "address",
+                "name": "from",
+                "type": "address"
+              },
+              {
+                "internalType": "address",
+                "name": "to",
+                "type": "address"
+              },
+              {
+                "internalType": "uint64",
+                "name": "totalDayPriceInUsdCents",
+                "type": "uint64"
+              },
+              {
+                "internalType": "uint64",
+                "name": "taxPriceInUsdCents",
+                "type": "uint64"
+              },
+              {
+                "internalType": "uint64",
+                "name": "depositInUsdCents",
+                "type": "uint64"
+              },
+              {
+                "internalType": "uint64",
+                "name": "resolveAmountInUsdCents",
+                "type": "uint64"
+              },
+              {
+                "internalType": "enum RentalityTripService.CurrencyType",
+                "name": "currencyType",
+                "type": "uint8"
+              },
+              {
+                "internalType": "int256",
+                "name": "ethToCurrencyRate",
+                "type": "int256"
+              },
+              {
+                "internalType": "uint8",
+                "name": "ethToCurrencyDecimals",
+                "type": "uint8"
+              },
+              {
+                "internalType": "uint64",
+                "name": "resolveFuelAmountInUsdCents",
+                "type": "uint64"
+              },
+              {
+                "internalType": "uint64",
+                "name": "resolveMilesAmountInUsdCents",
+                "type": "uint64"
+              }
+            ],
+            "internalType": "struct RentalityTripService.PaymentInfo",
+            "name": "paymentInfo",
+            "type": "tuple"
+          },
+          {
+            "internalType": "uint256",
+            "name": "approvedDateTime",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "checkedInByHostDateTime",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint64",
+            "name": "startFuelLevelInGal",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "startOdometr",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint256",
+            "name": "checkedInByGuestDateTime",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "checkedOutByGuestDateTime",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint64",
+            "name": "endFuelLevelInGal",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "endOdometr",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint256",
+            "name": "checkedOutByHostDateTime",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct RentalityTripService.Trip[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "carId",
+        "type": "uint256"
+      }
+    ],
+    "name": "getTripsByCar",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "tripId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "carId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "enum RentalityTripService.TripStatus",
+            "name": "status",
+            "type": "uint8"
+          },
+          {
+            "internalType": "address",
+            "name": "guest",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "host",
+            "type": "address"
+          },
+          {
+            "internalType": "uint64",
+            "name": "pricePerDayInUsdCents",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "startDateTime",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "endDateTime",
+            "type": "uint64"
+          },
+          {
+            "internalType": "string",
+            "name": "startLocation",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "endLocation",
+            "type": "string"
+          },
+          {
+            "internalType": "uint64",
+            "name": "milesIncludedPerDay",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "fuelPricePerGalInUsdCents",
+            "type": "uint64"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "tripId",
+                "type": "uint256"
+              },
+              {
+                "internalType": "address",
+                "name": "from",
+                "type": "address"
+              },
+              {
+                "internalType": "address",
+                "name": "to",
+                "type": "address"
+              },
+              {
+                "internalType": "uint64",
+                "name": "totalDayPriceInUsdCents",
+                "type": "uint64"
+              },
+              {
+                "internalType": "uint64",
+                "name": "taxPriceInUsdCents",
+                "type": "uint64"
+              },
+              {
+                "internalType": "uint64",
+                "name": "depositInUsdCents",
+                "type": "uint64"
+              },
+              {
+                "internalType": "uint64",
+                "name": "resolveAmountInUsdCents",
+                "type": "uint64"
+              },
+              {
+                "internalType": "enum RentalityTripService.CurrencyType",
+                "name": "currencyType",
+                "type": "uint8"
+              },
+              {
+                "internalType": "int256",
+                "name": "ethToCurrencyRate",
+                "type": "int256"
+              },
+              {
+                "internalType": "uint8",
+                "name": "ethToCurrencyDecimals",
+                "type": "uint8"
+              },
+              {
+                "internalType": "uint64",
+                "name": "resolveFuelAmountInUsdCents",
+                "type": "uint64"
+              },
+              {
+                "internalType": "uint64",
+                "name": "resolveMilesAmountInUsdCents",
+                "type": "uint64"
+              }
+            ],
+            "internalType": "struct RentalityTripService.PaymentInfo",
+            "name": "paymentInfo",
+            "type": "tuple"
+          },
+          {
+            "internalType": "uint256",
+            "name": "approvedDateTime",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "checkedInByHostDateTime",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint64",
+            "name": "startFuelLevelInGal",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "startOdometr",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint256",
+            "name": "checkedInByGuestDateTime",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "checkedOutByGuestDateTime",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint64",
+            "name": "endFuelLevelInGal",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "endOdometr",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint256",
+            "name": "checkedOutByHostDateTime",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct RentalityTripService.Trip[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "guest",
+        "type": "address"
+      }
+    ],
+    "name": "getTripsByGuest",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "tripId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "carId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "enum RentalityTripService.TripStatus",
+            "name": "status",
+            "type": "uint8"
+          },
+          {
+            "internalType": "address",
+            "name": "guest",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "host",
+            "type": "address"
+          },
+          {
+            "internalType": "uint64",
+            "name": "pricePerDayInUsdCents",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "startDateTime",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "endDateTime",
+            "type": "uint64"
+          },
+          {
+            "internalType": "string",
+            "name": "startLocation",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "endLocation",
+            "type": "string"
+          },
+          {
+            "internalType": "uint64",
+            "name": "milesIncludedPerDay",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "fuelPricePerGalInUsdCents",
+            "type": "uint64"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "tripId",
+                "type": "uint256"
+              },
+              {
+                "internalType": "address",
+                "name": "from",
+                "type": "address"
+              },
+              {
+                "internalType": "address",
+                "name": "to",
+                "type": "address"
+              },
+              {
+                "internalType": "uint64",
+                "name": "totalDayPriceInUsdCents",
+                "type": "uint64"
+              },
+              {
+                "internalType": "uint64",
+                "name": "taxPriceInUsdCents",
+                "type": "uint64"
+              },
+              {
+                "internalType": "uint64",
+                "name": "depositInUsdCents",
+                "type": "uint64"
+              },
+              {
+                "internalType": "uint64",
+                "name": "resolveAmountInUsdCents",
+                "type": "uint64"
+              },
+              {
+                "internalType": "enum RentalityTripService.CurrencyType",
+                "name": "currencyType",
+                "type": "uint8"
+              },
+              {
+                "internalType": "int256",
+                "name": "ethToCurrencyRate",
+                "type": "int256"
+              },
+              {
+                "internalType": "uint8",
+                "name": "ethToCurrencyDecimals",
+                "type": "uint8"
+              },
+              {
+                "internalType": "uint64",
+                "name": "resolveFuelAmountInUsdCents",
+                "type": "uint64"
+              },
+              {
+                "internalType": "uint64",
+                "name": "resolveMilesAmountInUsdCents",
+                "type": "uint64"
+              }
+            ],
+            "internalType": "struct RentalityTripService.PaymentInfo",
+            "name": "paymentInfo",
+            "type": "tuple"
+          },
+          {
+            "internalType": "uint256",
+            "name": "approvedDateTime",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "checkedInByHostDateTime",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint64",
+            "name": "startFuelLevelInGal",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "startOdometr",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint256",
+            "name": "checkedInByGuestDateTime",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "checkedOutByGuestDateTime",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint64",
+            "name": "endFuelLevelInGal",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "endOdometr",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint256",
+            "name": "checkedOutByHostDateTime",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct RentalityTripService.Trip[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "host",
+        "type": "address"
+      }
+    ],
+    "name": "getTripsByHost",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "tripId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "carId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "enum RentalityTripService.TripStatus",
+            "name": "status",
+            "type": "uint8"
+          },
+          {
+            "internalType": "address",
+            "name": "guest",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "host",
+            "type": "address"
+          },
+          {
+            "internalType": "uint64",
+            "name": "pricePerDayInUsdCents",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "startDateTime",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "endDateTime",
+            "type": "uint64"
+          },
+          {
+            "internalType": "string",
+            "name": "startLocation",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "endLocation",
+            "type": "string"
+          },
+          {
+            "internalType": "uint64",
+            "name": "milesIncludedPerDay",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "fuelPricePerGalInUsdCents",
+            "type": "uint64"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "tripId",
+                "type": "uint256"
+              },
+              {
+                "internalType": "address",
+                "name": "from",
+                "type": "address"
+              },
+              {
+                "internalType": "address",
+                "name": "to",
+                "type": "address"
+              },
+              {
+                "internalType": "uint64",
+                "name": "totalDayPriceInUsdCents",
+                "type": "uint64"
+              },
+              {
+                "internalType": "uint64",
+                "name": "taxPriceInUsdCents",
+                "type": "uint64"
+              },
+              {
+                "internalType": "uint64",
+                "name": "depositInUsdCents",
+                "type": "uint64"
+              },
+              {
+                "internalType": "uint64",
+                "name": "resolveAmountInUsdCents",
+                "type": "uint64"
+              },
+              {
+                "internalType": "enum RentalityTripService.CurrencyType",
+                "name": "currencyType",
+                "type": "uint8"
+              },
+              {
+                "internalType": "int256",
+                "name": "ethToCurrencyRate",
+                "type": "int256"
+              },
+              {
+                "internalType": "uint8",
+                "name": "ethToCurrencyDecimals",
+                "type": "uint8"
+              },
+              {
+                "internalType": "uint64",
+                "name": "resolveFuelAmountInUsdCents",
+                "type": "uint64"
+              },
+              {
+                "internalType": "uint64",
+                "name": "resolveMilesAmountInUsdCents",
+                "type": "uint64"
+              }
+            ],
+            "internalType": "struct RentalityTripService.PaymentInfo",
+            "name": "paymentInfo",
+            "type": "tuple"
+          },
+          {
+            "internalType": "uint256",
+            "name": "approvedDateTime",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "checkedInByHostDateTime",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint64",
+            "name": "startFuelLevelInGal",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "startOdometr",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint256",
+            "name": "checkedInByGuestDateTime",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "checkedOutByGuestDateTime",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint64",
+            "name": "endFuelLevelInGal",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "endOdometr",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint256",
+            "name": "checkedOutByHostDateTime",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct RentalityTripService.Trip[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getUserServiceAddress",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "tripId",
+        "type": "uint256"
+      }
+    ],
+    "name": "rejectTripRequest",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "renounceOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint64",
+        "name": "startDateTime",
+        "type": "uint64"
+      },
+      {
+        "internalType": "uint64",
+        "name": "endDateTime",
+        "type": "uint64"
+      },
+      {
+        "components": [
+          {
+            "internalType": "string",
+            "name": "country",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "state",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "city",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "brand",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "model",
+            "type": "string"
+          },
+          {
+            "internalType": "uint32",
+            "name": "yearOfProductionFrom",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "yearOfProductionTo",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint64",
+            "name": "pricePerDayInUsdCentsFrom",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "pricePerDayInUsdCentsTo",
+            "type": "uint64"
+          }
+        ],
+        "internalType": "struct RentalityCarToken.SearchCarParams",
+        "name": "searchParams",
+        "type": "tuple"
+      }
+    ],
+    "name": "searchAvailableCars",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "carId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "carVinNumber",
+            "type": "string"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "carVinNumberHash",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "address",
+            "name": "createdBy",
+            "type": "address"
+          },
+          {
+            "internalType": "string",
+            "name": "brand",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "model",
+            "type": "string"
+          },
+          {
+            "internalType": "uint32",
+            "name": "yearOfProduction",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint64",
+            "name": "pricePerDayInUsdCents",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "securityDepositPerTripInUsdCents",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "tankVolumeInGal",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "fuelPricePerGalInUsdCents",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "milesIncludedPerDay",
+            "type": "uint64"
+          },
+          {
+            "internalType": "string",
+            "name": "country",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "state",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "city",
+            "type": "string"
+          },
+          {
+            "internalType": "int64",
+            "name": "locationLatitudeInPPM",
+            "type": "int64"
+          },
+          {
+            "internalType": "int64",
+            "name": "locationLongitudeInPPM",
+            "type": "int64"
+          },
+          {
+            "internalType": "bool",
+            "name": "currentlyListed",
+            "type": "bool"
+          }
+        ],
+        "internalType": "struct RentalityCarToken.CarInfo[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      },
+      {
+        "internalType": "uint64",
+        "name": "startDateTime",
+        "type": "uint64"
+      },
+      {
+        "internalType": "uint64",
+        "name": "endDateTime",
+        "type": "uint64"
+      },
+      {
+        "components": [
+          {
+            "internalType": "string",
+            "name": "country",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "state",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "city",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "brand",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "model",
+            "type": "string"
+          },
+          {
+            "internalType": "uint32",
+            "name": "yearOfProductionFrom",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "yearOfProductionTo",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint64",
+            "name": "pricePerDayInUsdCentsFrom",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "pricePerDayInUsdCentsTo",
+            "type": "uint64"
+          }
+        ],
+        "internalType": "struct RentalityCarToken.SearchCarParams",
+        "name": "searchParams",
+        "type": "tuple"
+      }
+    ],
+    "name": "searchAvailableCarsForUser",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "carId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "carVinNumber",
+            "type": "string"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "carVinNumberHash",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "address",
+            "name": "createdBy",
+            "type": "address"
+          },
+          {
+            "internalType": "string",
+            "name": "brand",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "model",
+            "type": "string"
+          },
+          {
+            "internalType": "uint32",
+            "name": "yearOfProduction",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint64",
+            "name": "pricePerDayInUsdCents",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "securityDepositPerTripInUsdCents",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "tankVolumeInGal",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "fuelPricePerGalInUsdCents",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "milesIncludedPerDay",
+            "type": "uint64"
+          },
+          {
+            "internalType": "string",
+            "name": "country",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "state",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "city",
+            "type": "string"
+          },
+          {
+            "internalType": "int64",
+            "name": "locationLatitudeInPPM",
+            "type": "int64"
+          },
+          {
+            "internalType": "int64",
+            "name": "locationLongitudeInPPM",
+            "type": "int64"
+          },
+          {
+            "internalType": "bool",
+            "name": "currentlyListed",
+            "type": "bool"
+          }
+        ],
+        "internalType": "struct RentalityCarToken.CarInfo[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint32",
+        "name": "valueInPPM",
+        "type": "uint32"
+      }
+    ],
+    "name": "setPlatformFeeInPPM",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "carId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint64",
+            "name": "pricePerDayInUsdCents",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "securityDepositPerTripInUsdCents",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "fuelPricePerGalInUsdCents",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "milesIncludedPerDay",
+            "type": "uint64"
+          },
+          {
+            "internalType": "string",
+            "name": "country",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "state",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "city",
+            "type": "string"
+          },
+          {
+            "internalType": "int64",
+            "name": "locationLatitudeInPPM",
+            "type": "int64"
+          },
+          {
+            "internalType": "int64",
+            "name": "locationLongitudeInPPM",
+            "type": "int64"
+          },
+          {
+            "internalType": "bool",
+            "name": "currentlyListed",
+            "type": "bool"
+          }
+        ],
+        "internalType": "struct RentalityCarToken.UpdateCarInfoRequest",
+        "name": "request",
+        "type": "tuple"
+      }
+    ],
+    "name": "updateCarInfo",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "carId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint64",
+        "name": "pricePerDayInUsdCents",
+        "type": "uint64"
+      },
+      {
+        "internalType": "uint64",
+        "name": "securityDepositPerTripInUsdCents",
+        "type": "uint64"
+      },
+      {
+        "internalType": "uint64",
+        "name": "fuelPricePerGalInUsdCents",
+        "type": "uint64"
+      },
+      {
+        "internalType": "uint64",
+        "name": "milesIncludedPerDay",
+        "type": "uint64"
+      },
+      {
+        "internalType": "string",
+        "name": "country",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "state",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "city",
+        "type": "string"
+      },
+      {
+        "internalType": "int64",
+        "name": "locationLatitudeInPPM",
+        "type": "int64"
+      },
+      {
+        "internalType": "int64",
+        "name": "locationLongitudeInPPM",
+        "type": "int64"
+      },
+      {
+        "internalType": "bool",
+        "name": "currentlyListed",
+        "type": "bool"
+      }
+    ],
+    "name": "updateCarInfo",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "contractAddress",
+        "type": "address"
+      }
+    ],
+    "name": "updateCarService",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "carId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "string",
+        "name": "tokenUri",
+        "type": "string"
+      }
+    ],
+    "name": "updateCarTokenUri",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "contractAddress",
+        "type": "address"
+      }
+    ],
+    "name": "updateCurrencyConverterService",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "contractAddress",
+        "type": "address"
+      }
+    ],
+    "name": "updateTripService",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "contractAddress",
+        "type": "address"
+      }
+    ],
+    "name": "updateUserService",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "withdrawAllFromPlatform",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "withdrawFromPlatform",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]
